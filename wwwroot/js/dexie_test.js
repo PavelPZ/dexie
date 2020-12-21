@@ -1,17 +1,8 @@
 import Dexie from './dexie.js';
-
-interface IFriend {
-    id?: number;
-    name?: string;
-    age?: number;
-}
-
 //
 // Declare Database
 //
 class FriendDatabase extends Dexie {
-    friends: Dexie.Table<IFriend, number>;
-
     constructor() {
         super("FriendsDatabase");
         this.version(1).stores({
@@ -19,7 +10,6 @@ class FriendDatabase extends Dexie {
         });
     }
 }
-
 function run() {
     var db = new FriendDatabase();
     //
@@ -33,6 +23,5 @@ function run() {
         alert("error: " + e.stack || e);
     });
 }
-
 window['dexie_test'] = run;
-
+//# sourceMappingURL=dexie_test.js.map
